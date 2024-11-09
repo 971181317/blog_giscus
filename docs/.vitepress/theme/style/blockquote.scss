@@ -1,0 +1,9 @@
+/* .vitepress\theme\style\blockquote.css */
+// 在Markdown中，我们常用的引用符号是 >，我们可以稍微改动一下
+.vp-doc blockquote {
+  border-radius: 10px;
+  padding: 18px 20px 20px 15px;
+  position: relative;
+  background-color: var(--vp-c-gray-soft);
+  border-left: 6px solid var(--vp-c-green-2);
+}

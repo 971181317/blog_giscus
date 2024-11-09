@@ -1,0 +1,15 @@
+/* index.mts.css */
+@import "var";
+// https://vitepress.yiov.top/style.html#%E5%BD%A9%E8%99%B9%E8%83%8C%E6%99%AF%E5%8A%A8%E7%94%BB
+@import "rainbow";
+// markdown 引用颜色
+@import "blockquote";
+// 容器跑马灯
+@import "custom-block";
+// 导航栏毛玻璃
+@import "blur";
+// 文档横条隐藏
+@import "hidden";
+// mac风格code
+@import "vp-code";
+@import "vp-code-group";
