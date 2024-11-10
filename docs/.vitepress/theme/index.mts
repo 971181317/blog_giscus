@@ -5,6 +5,7 @@ import { DocBox, DocBoxCube, DocLinks } from '@theojs/lumen';
 import { useData, useRoute } from 'vitepress';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import googleAnalytics from 'vitepress-plugin-google-analytics';
+import '@theojs/lumen/theme';
 // @ts-ignore
 import Layout from './Layout.vue';
 // @ts-ignore
@@ -15,6 +16,8 @@ import DocMetaData from './components/DocMetaData.vue';
 import HomeUnderline from './components/HomeUnderline.vue';
 // @ts-ignore
 import LinkCard from './components/LinkCard.vue';
+// @ts-ignore
+import MNavLinks from './components/MNavLinks.vue';
 
 // @ts-ignore
 export default {
@@ -30,6 +33,7 @@ export default {
 		app.component('Links', DocLinks);
 		app.component('BoxCube', DocBoxCube);
 		app.component('DocMetaData', DocMetaData);
+		app.component('MNavLinks', MNavLinks);
 		googleAnalytics({
 			id: 'G-X0FZSCQYVW', //跟踪ID，在analytics.google.com注册即可
 		});

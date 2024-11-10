@@ -3,15 +3,6 @@ import { nav } from './nav';
 
 export const themeConfig: DefaultTheme.Config = {
 	nav: nav, // 导航栏配置
-	sidebar: [
-		{
-			text: 'Examples',
-			items: [
-				{ text: 'Markdown Examples', link: '/markdown-examples' },
-				{ text: 'Runtime API Examples', link: '/api-examples' },
-			],
-		},
-	],
 	outline: {
 		level: 'deep', // 右侧大纲标题层级
 		label: '目录', // 右侧大纲标题文本配置

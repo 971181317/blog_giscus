@@ -11,19 +11,19 @@ hero:
     alt: icon
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 导航
+      link: /nav
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Vitepress搭建指南
+      link: /vitepress
 
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#features:
+#  - title: Feature A
+#    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#  - title: Feature B
+#    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+#  - title: Feature C
+#    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
 [//]: # (首页划线)

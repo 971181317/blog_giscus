@@ -1,0 +1,88 @@
+# code-server Dokcer+Nginx 部署方法及踩坑
+
+Docker 部署方法及踩坑详见：[点我跳转](./code-server%20Dokcer部署方法及踩坑)
+
+## code-server 和 Nginx 在同一台机器中的Docker部署
+
+需要使用 Docker 网桥，这样 nginx 就可以使用容器名作为域名访问 code-server 的端口了
+
+```shell [bash]
+# 创建名为code-server的网桥
+docker network create code-server
+```
+
+如果nginx或code-server容器已存在，直接将容器和网桥连接
+
+```shell [bash]
+# 容器可以填入名称或 container id
+docker network connect 网桥名 容器
+```
+
+例如nginx容器名为nginx，code-server容器名为code-server，
+
+```shell [bash]
+docker network connect code-server nginx
+docker network connect code-server code-server
+```
+
+如果容器不存在，可以在docker run的时候加入网桥参数`--net code-server`
+
+```shell [bash]
+# nginx
+docker run -d --name nginx -p 80:80 --net code-server nginx
+
+# code-server
+docker run -d -it --name code-server -p 8080:8080 \
+  -v "/www/wwwroot/coder-server/.config:/home/coder/.config" \
+  -v "/www/wwwroot/coder-server/project:/home/coder/project" \
+  -u "$(id -u):$(id -g)" \
+  -e "DOCKER_USER=$USER" \
+  -e "PASSWORD"=***** \
+  --net code-server \
+  codercom/code-server:latest
+```
+
+## Nginx 配置
+
+* 在 nginx 的 http 块加入 WebSocket 代理配置
+    ```nginx [nginx]
+    map $http_upgrade $connection_upgrade {  
+         default upgrade;  
+         '' close;  
+    }
+    ```
+* server块配置
+    ```nginx [nginx]
+    server
+    {
+        #监听端口
+        listen 80;
+        listen [::]:80;
+    
+        # 替换你自己的域名，域名可以有多个，用空格隔开
+        server_name you_domin.com;
+        
+        location / {
+            # 如果nginx 和 code-server在同一台机器中的docker中部署，使用http://code-server:8080/
+            # nginx在宿主机，使用http://localhost:8080/
+            # 分离部署填入实际的ip和端口
+            proxy_pass http://code-server:8080/;
+            # proxy_pass http://localhost:8080/;
+            # proxy_pass http://ip:port/;
+            proxy_set_header HOST $host;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection upgrade;
+            proxy_set_header Accept-Encoding gzip;
+        }
+    }
+    ```
+
+## 踩坑
+
+### 访问 code-server 提示 The workbench failed to connect to the server (Error: WebSocket close with status code 1006)
+
+错误如图：
+
+![](https://dxytoll-img-1304942391.cos.ap-nanjing.myqcloud.com/img/blog/image-1654859875983.png)
+
+nginx没有设置WebSocket代理的问题，按照上面的步骤设置nginx就可以
