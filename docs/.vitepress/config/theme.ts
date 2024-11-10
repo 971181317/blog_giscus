@@ -22,8 +22,9 @@ export const themeConfig: DefaultTheme.Config = {
 	lastUpdated: {
 		text: '最后更新', // 最后更新时间文本配置, 需先配置lastUpdated为true
 		formatOptions: {
-			dateStyle: 'full',
-			timeStyle: 'medium',
+			// @ts-ignore
+			dateStyle: 'medium', // full short medium
+			timeStyle: 'medium', // full short medium
 		},
 	},
 	// 文档页脚文本配置
@@ -41,7 +42,7 @@ export const themeConfig: DefaultTheme.Config = {
 	},*/
 	// 导航栏右侧社交链接配置
 	socialLinks: [
-		{ icon: 'github', link: 'https://github.com/971181317' },
+		{ icon: 'github', link: 'https://github.com/soladxy' },
 		{
 			icon: {
 				// https://simpleicons.org/

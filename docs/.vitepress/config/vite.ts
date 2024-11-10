@@ -1,3 +1,4 @@
+import vue from '@vitejs/plugin-vue';
 import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
 import type { UserConfig } from 'vitepress';
 import { groupIconVitePlugin } from 'vitepress-plugin-group-icons';
