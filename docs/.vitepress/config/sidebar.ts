@@ -8,8 +8,8 @@ export const sidebar: DefaultTheme.Sidebar = generateSidebar([
 	...curDirSidebar('study-notes'),
 	{
 		documentRootPath: 'docs',
-		scanStartPath: '/technology',
-		resolvePath: '/',
+		scanStartPath: 'technology',
+		resolvePath: '/technology',
 		collapsed: false,
 		// useTitleFromFileHeading: true,
 		removePrefixAfterOrdering: true,
