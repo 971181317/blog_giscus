@@ -6,6 +6,16 @@ import type { VitePressSidebarOptions } from 'vitepress-sidebar';
 export const sidebar: DefaultTheme.Sidebar = generateSidebar([
 	...curDirSidebar('build'),
 	...curDirSidebar('study-notes'),
+	{
+		documentRootPath: 'docs',
+		scanStartPath: '/technology',
+		resolvePath: '/',
+		collapsed: false,
+		// useTitleFromFileHeading: true,
+		removePrefixAfterOrdering: true,
+		prefixSeparator: '.', // 去除数组前缀
+		sortMenusOrderNumericallyFromTitle: true,
+	},
 ]);
 
 /**

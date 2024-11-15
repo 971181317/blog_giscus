@@ -33,7 +33,7 @@ export const nav: DefaultTheme.Config['nav'] = [
 	},
 	{
 		text: '技术分享',
-		link: '/technology/',
+		link: findFirstMdFile('docs/technology/').replace('docs/', ''),
 		activeMatch: '/technology/',
 	},
 ];
