@@ -21,4 +21,12 @@ export const head: HeadConfig[] = [
 	['meta', { property: 'og:description', content: metaData.description }],
 	['meta', { property: 'og:site', content: metaData.site }],
 	['meta', { property: 'og:site_name', content: metaData.title }],
+	[
+		'script',
+		{
+			async: '',
+			src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1451634554731623',
+			crossorigin: 'anonymous',
+		},
+	],
 ];
