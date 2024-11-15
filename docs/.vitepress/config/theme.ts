@@ -21,7 +21,8 @@ export const themeConfig: DefaultTheme.Config = {
 		},
 	},
 	editLink: {
-		pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+		pattern:
+			'https://github.com/soladxy/sola_blog_vitepress/edit/main/docs/:path',
 		text: '在 GitHub 上编辑此页面',
 	},
 	// 文档页脚文本配置
