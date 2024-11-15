@@ -25,7 +25,7 @@ const props = defineProps<{
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 /* 卡片背景 */
 .linkcard {
   background-color: var(--vp-c-bg-soft);
