@@ -19,7 +19,7 @@ function curDirSidebar(path: string): VitePressSidebarOptions[] {
 			documentRootPath: 'docs',
 			scanStartPath: `${path}/${pkg}`,
 			resolvePath: `/${path}/${pkg}/`,
-			collapsed: true,
+			collapsed: false,
 			// useTitleFromFileHeading: true,
 			removePrefixAfterOrdering: true,
 			prefixSeparator: '.', // 去除数组前缀

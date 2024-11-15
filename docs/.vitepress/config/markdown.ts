@@ -1,6 +1,6 @@
+import { figure } from '@mdit/plugin-figure';
 // import mathjax3 from 'markdown-it-mathjax3';
 // import footnote from 'markdown-it-footnote';
-import { figure } from '@mdit/plugin-figure';
 import type { MarkdownOptions } from 'vitepress';
 import { groupIconMdPlugin } from 'vitepress-plugin-group-icons';
 import lightbox from 'vitepress-plugin-lightbox';
@@ -20,7 +20,7 @@ export const markdown: MarkdownOptions = {
 		md.use(md => {
 			const defaultRender = md.render;
 			md.render = (...args) => {
-				const [content, env] = args;
+				const [, env] = args;
 				const isHomePage = env.path === '/' || env.relativePath === 'index.md'; // 判断是否是首页
 				if (isHomePage) {
 					return defaultRender.apply(md, args); // 如果是首页，直接渲染内容
