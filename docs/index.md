@@ -13,9 +13,12 @@ hero:
     - theme: brand
       text: 导航
       link: /nav
+    - theme: brand
+      text: bilibiliToolChrome
+      link: /dev/bilibiliToolChrome/
     - theme: alt
       text: Vitepress搭建指南
-      link: /vitepress
+      link: /build/vitepress/
 
 #features:
 #  - title: Feature A

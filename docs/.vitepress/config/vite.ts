@@ -1,4 +1,3 @@
-import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar';
 import type { UserConfig } from 'vitepress';
 import { groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 
@@ -24,12 +23,6 @@ export const vite: UserConfig['vite'] = {
 				mysql: 'vscode-icons:file-type-mysql',
 				'.sql': 'vscode-icons:file-type-sql',
 			},
-		}),
-		AutoSidebar({
-			// You can also set options to adjust sidebar data
-			// see option document below
-			titleFromFile: true,
-			ignoreIndexItem: true,
 		}),
 	],
 	css: {

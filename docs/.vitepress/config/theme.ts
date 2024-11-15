@@ -1,8 +1,10 @@
 import type { DefaultTheme } from 'vitepress';
 import { nav } from './nav';
+import { sidebar } from './sidebar';
 
 export const themeConfig: DefaultTheme.Config = {
 	nav: nav, // 导航栏配置
+	sidebar: sidebar,
 	outline: {
 		level: 'deep', // 右侧大纲标题层级
 		label: '目录', // 右侧大纲标题文本配置
@@ -17,6 +19,10 @@ export const themeConfig: DefaultTheme.Config = {
 			dateStyle: 'medium', // full short medium
 			timeStyle: 'medium', // full short medium
 		},
+	},
+	editLink: {
+		pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+		text: '在 GitHub 上编辑此页面',
 	},
 	// 文档页脚文本配置
 	docFooter: {

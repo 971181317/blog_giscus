@@ -1,7 +1,3 @@
----
-sidebar: false
----
-
 # goHttpProMaxPlus
 
 Go quickly request http and Support for AOP

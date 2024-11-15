@@ -3,6 +3,7 @@ import 'virtual:group-icons.css';
 import './style/index.scss';
 import { DocBox, DocBoxCube, DocLinks } from '@theojs/lumen';
 import { useData, useRoute } from 'vitepress';
+import type { Theme } from 'vitepress';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import googleAnalytics from 'vitepress-plugin-google-analytics';
 import '@theojs/lumen/theme';
@@ -24,16 +25,16 @@ export default {
 	extends: DefaultTheme,
 	// 扩展原有主题
 	Layout: Layout,
-	enhanceApp({ app }) {
+	enhanceApp(ctx) {
 		// 注册全局组件
-		app.component('Confetti', Confetti);
-		app.component('LinkCard', LinkCard);
-		app.component('HomeUnderline', HomeUnderline);
-		app.component('Box', DocBox);
-		app.component('Links', DocLinks);
-		app.component('BoxCube', DocBoxCube);
-		app.component('DocMetaData', DocMetaData);
-		app.component('MNavLinks', MNavLinks);
+		ctx.app.component('Confetti', Confetti);
+		ctx.app.component('LinkCard', LinkCard);
+		ctx.app.component('HomeUnderline', HomeUnderline);
+		ctx.app.component('Box', DocBox);
+		ctx.app.component('Links', DocLinks);
+		ctx.app.component('BoxCube', DocBoxCube);
+		ctx.app.component('DocMetaData', DocMetaData);
+		ctx.app.component('MNavLinks', MNavLinks);
 		googleAnalytics({
 			id: 'G-X0FZSCQYVW', //跟踪ID，在analytics.google.com注册即可
 		});
@@ -46,7 +47,7 @@ export default {
 		// giscus配置
 		giscusTalk(
 			{
-				repo: 'soladxy/blog_giscus', //仓库
+				repo: 'soladxy/sola_blog_vitepress', //仓库
 				repoId: 'R_kgDONNEoPw', //仓库ID
 				category: 'Announcements', // 讨论分类
 				categoryId: 'DIC_kwDONNEoP84CkI_d', //讨论分类ID
@@ -65,4 +66,4 @@ export default {
 			true,
 		);
 	},
-};
+} satisfies Theme;
