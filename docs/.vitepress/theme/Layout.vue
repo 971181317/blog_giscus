@@ -7,6 +7,7 @@ import mediumZoom from 'medium-zoom';
 import { useData, useRouter } from 'vitepress';
 import { nextTick, onMounted, provide } from 'vue';
 import { Footer_Data } from '../data';
+import { dynamicTitle, fairyDustCursor } from './src';
 
 // @vitepress-plugin-lightbox start
 const router = useRouter();
@@ -21,8 +22,6 @@ const setupMediumZoom = () => {
 // Apply medium zoom on load
 onMounted(setupMediumZoom);
 
-// Subscribe to route changes to re-apply medium zoom effect
-router.onAfterRouteChanged = setupMediumZoom;
 // @vitepress-plugin-lightbox end
 
 // @切换颜色模式时提供自定义过渡动画 start
@@ -61,6 +60,26 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 	);
 });
 // @切换颜色模式时提供自定义过渡动画 end
+
+// 鼠标拖尾、动态标题 start
+if (!import.meta.env.SSR) {
+	import('./src').then(module => {
+		module.dynamicTitle();
+		module.fairyDustCursor();
+	});
+}
+// 鼠标拖尾、动态标题 end
+
+// Subscribe to route changes to re-apply medium zoom effect
+router.onAfterRouteChanged = () => {
+	setupMediumZoom();
+	if (!import.meta.env.SSR) {
+		import('./src').then(module => {
+			module.dynamicTitle();
+			module.fairyDustCursor();
+		});
+	}
+};
 </script>
 
 <template>
