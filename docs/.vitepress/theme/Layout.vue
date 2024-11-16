@@ -18,10 +18,6 @@ const setupMediumZoom = () => {
 		background: 'transparent',
 	});
 };
-
-// Apply medium zoom on load
-onMounted(setupMediumZoom);
-
 // @vitepress-plugin-lightbox end
 
 // @切换颜色模式时提供自定义过渡动画 start
@@ -66,6 +62,7 @@ if (!import.meta.env.SSR) {
 	import('./src').then(module => {
 		module.dynamicTitle();
 		module.fairyDustCursor();
+		module.bodyClick();
 	});
 }
 // 鼠标拖尾、动态标题 end
@@ -80,6 +77,21 @@ router.onAfterRouteChanged = () => {
 		});
 	}
 };
+
+// Apply medium zoom on load
+onMounted(() => {
+	setupMediumZoom();
+	if (!import.meta.env.SSR) {
+		import('canvas-nest.js').then(module => {
+			new module.default(document.body, {
+				color: '255,0,0',
+				count: 88,
+				zIndex: -1,
+				opacity: 0.8,
+			});
+		});
+	}
+});
 </script>
 
 <template>

@@ -11,7 +11,6 @@ export default defineConfig({
 	lang: metaData.lang,
 	title: metaData.title,
 	description: metaData.description,
-	appearance: 'dark',
 	cleanUrls: true, //开启纯净链接
 	lastUpdated: true,
 	sitemap: {
