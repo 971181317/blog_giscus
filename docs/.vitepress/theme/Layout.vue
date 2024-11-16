@@ -83,7 +83,16 @@ onMounted(() => {
 	setupMediumZoom();
 	if (!import.meta.env.SSR) {
 		import('canvas-nest.js').then(module => {
-			new module.default(document.body, {
+			const container = document.createElement('div');
+			container.id = 'canvas-nest-container';
+			container.style.position = 'fixed';
+			container.style.top = '0';
+			container.style.left = '0';
+			container.style.width = '100vw';
+			container.style.height = '100vh';
+			container.style.zIndex = '-2';
+			document.body.appendChild(container);
+			new module.default(container, {
 				color: '255,0,0',
 				count: 88,
 				zIndex: -1,
@@ -103,6 +112,7 @@ onMounted(() => {
       <HomeFooter :Footer_Data='Footer_Data'></HomeFooter>
     </template>
   </Layout>
+  <div id="canvas-nest-container" style="height: 100vh; width: 100vw"></div>
   <component :is="'script'" type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/sakura/sakura-small.js"></component>
 </template>
 
