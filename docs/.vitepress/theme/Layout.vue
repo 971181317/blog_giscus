@@ -103,6 +103,7 @@ onMounted(() => {
       <HomeFooter :Footer_Data='Footer_Data'></HomeFooter>
     </template>
   </Layout>
+  <component :is="'script'" type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/sakura/sakura-small.js"></component>
 </template>
 
 <style>
