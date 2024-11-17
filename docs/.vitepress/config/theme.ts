@@ -1,5 +1,6 @@
 import type { DefaultTheme } from 'vitepress';
 import { nav } from './nav';
+import { search } from './search';
 import { sidebar } from './sidebar';
 
 export const themeConfig: DefaultTheme.Config = {
@@ -30,14 +31,8 @@ export const themeConfig: DefaultTheme.Config = {
 		prev: '上一篇',
 		next: '下一篇',
 	},
-	// 搜索配置（二选一）
-	/*search: {
-		provider: 'algolia',
-		options: algoliaSearchOptions,
-		// 本地离线搜索
-		// provider: 'local',
-		// options: localSearchOptions
-	},*/
+	// 搜索 algolia
+	search: search,
 	// 导航栏右侧社交链接配置
 	socialLinks: [
 		{ icon: 'github', link: 'https://github.com/soladxy' },
