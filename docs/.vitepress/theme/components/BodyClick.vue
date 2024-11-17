@@ -1,5 +1,6 @@
-export function bodyClick() {
-	let a_idx = 0;
+<script setup lang="ts">
+let a_idx = 0;
+if (!import.meta.env.SSR) {
 	function click(e: MouseEvent) {
 		// console.log('bodyClick');
 		const a = [
@@ -49,3 +50,4 @@ export function bodyClick() {
 
 	document.body.addEventListener('click', click);
 }
+</script>

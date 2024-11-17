@@ -6,8 +6,13 @@ const { Layout } = DefaultTheme;
 import mediumZoom from 'medium-zoom';
 import { useData, useRouter } from 'vitepress';
 import { nextTick, onMounted, provide } from 'vue';
+import VueCanvasNest from 'vue-canvas-nest/src/vueCanvasNest.vue';
 import { Footer_Data } from '../data';
-import { dynamicTitle, fairyDustCursor } from './src';
+import BodyClick from './components/BodyClick.vue';
+import CanvasNest from './components/CanvasNest.vue';
+import FairyDustCursor from './components/FairyDustCursor.vue';
+import Sakula from './components/Sakula.vue';
+import { dynamicTitle } from './src';
 
 // @vitepress-plugin-lightbox start
 const router = useRouter();
@@ -57,15 +62,13 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
 });
 // @切换颜色模式时提供自定义过渡动画 end
 
-// 鼠标拖尾、动态标题 start
+// 动态标题 start
 if (!import.meta.env.SSR) {
 	import('./src').then(module => {
 		module.dynamicTitle();
-		module.fairyDustCursor();
-		module.bodyClick();
 	});
 }
-// 鼠标拖尾、动态标题 end
+// 动态标题 end
 
 // Subscribe to route changes to re-apply medium zoom effect
 router.onAfterRouteChanged = () => {
@@ -73,7 +76,6 @@ router.onAfterRouteChanged = () => {
 	if (!import.meta.env.SSR) {
 		import('./src').then(module => {
 			module.dynamicTitle();
-			module.fairyDustCursor();
 		});
 	}
 };
@@ -81,29 +83,14 @@ router.onAfterRouteChanged = () => {
 // Apply medium zoom on load
 onMounted(() => {
 	setupMediumZoom();
-	if (!import.meta.env.SSR) {
-		import('canvas-nest.js').then(module => {
-			const container = document.createElement('div');
-			container.id = 'canvas-nest-container';
-			container.style.position = 'fixed';
-			container.style.top = '0';
-			container.style.left = '0';
-			container.style.width = '100vw';
-			container.style.height = '100vh';
-			container.style.zIndex = '-2';
-			document.body.appendChild(container);
-			new module.default(container, {
-				color: '255,0,0',
-				count: 88,
-				zIndex: -1,
-				opacity: 0.8,
-			});
-		});
-	}
 });
 </script>
 
 <template>
+  <CanvasNest/>
+  <Sakula/>
+  <BodyClick/>
+  <FairyDustCursor/>
   <Layout>
     <template #aside-outline-before>
       <ShareButton></ShareButton>
@@ -112,8 +99,6 @@ onMounted(() => {
       <HomeFooter :Footer_Data='Footer_Data'></HomeFooter>
     </template>
   </Layout>
-  <div id="canvas-nest-container" style="height: 100vh; width: 100vw"></div>
-  <component :is="'script'" type="text/javascript" src="https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.2/js/sakura/sakura-small.js"></component>
 </template>
 
 <style>
