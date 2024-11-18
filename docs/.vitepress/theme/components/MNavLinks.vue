@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { slugify } from '@mdit-vue/shared';
-import { computed } from 'vue';
-import type { NavLink } from '../type';
-import MNavLink from './MNavLink.vue';
+import { slugify } from "@mdit-vue/shared";
+import { computed } from "vue";
+import type { NavLink } from "../type";
+import MNavLink from "./MNavLink.vue";
 
 const props = defineProps<{
-	title: string;
-	noIcon?: boolean;
-	items: NavLink[];
+  title: string;
+  noIcon?: boolean;
+  items: NavLink[];
 }>();
 
 const formatTitle = computed(() => {
-	return slugify(props.title);
+  return slugify(props.title);
 });
 </script>
 
@@ -21,7 +21,12 @@ const formatTitle = computed(() => {
     <a class="header-anchor" :href="`#${formatTitle}`" aria-hidden="true"></a>
   </h2>
   <div class="m-nav-links">
-    <MNavLink v-for="item in items" :noIcon="noIcon" v-bind="item" />
+    <MNavLink
+      v-for="item in items"
+      :noIcon="noIcon"
+      v-bind="item"
+      :key="item.title"
+    />
   </div>
 </template>
 
@@ -37,7 +42,10 @@ const formatTitle = computed(() => {
   margin-top: var(--m-nav-gap);
 }
 
-@each $media, $size in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px) {
+@each $media,
+  $size
+    in (500px: 140px, 640px: 155px, 768px: 175px, 960px: 200px, 1440px: 240px)
+{
   @media (min-width: $media) {
     .m-nav-links {
       grid-template-columns: repeat(auto-fill, minmax($size, 1fr));

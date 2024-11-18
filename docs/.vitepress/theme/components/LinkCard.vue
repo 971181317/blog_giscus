@@ -1,25 +1,31 @@
 <script setup lang="ts">
-import { Icon } from '@iconify/vue';
+import { Icon } from "@iconify/vue";
 
 const props = defineProps<{
-	url: '';
-	title: '';
-	description: '';
-	logo: {
-		url?: '';
-		icon?: '';
-	};
+  url: "";
+  title: "";
+  description: "";
+  logo: {
+    url?: "";
+    icon?: "";
+  };
 }>();
 </script>
-
 
 <template>
   <div class="linkcard">
     <a :href="props.url" target="_blank">
-      <p class="description">{{ props.title }}<br><span>{{ props.description }}</span></p>
+      <p class="description">
+        {{ props.title }}<br /><span>{{ props.description }}</span>
+      </p>
       <div class="logo">
         <img v-if="props.logo.url" alt="logo" :src="props.logo.url" />
-        <Icon v-else-if="props.logo.icon" class="iconify" :icon="props.logo.icon" :inline="true" />
+        <Icon
+          v-else-if="props.logo.icon"
+          class="iconify"
+          :icon="props.logo.icon"
+          :inline="true"
+        />
       </div>
     </a>
   </div>
@@ -31,7 +37,9 @@ const props = defineProps<{
   background-color: var(--vp-c-bg-soft);
   border-radius: 8px;
   padding: 8px 16px 8px 8px;
-  transition: color 0.5s, background-color 0.5s;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
   margin-top: 15px;
 
   /* 卡片鼠标悬停 */
@@ -72,7 +80,6 @@ const props = defineProps<{
       color: initial; // 去除theme svg图像颜色
     }
   }
-
 }
 /* 链接下划线去除 */
 .vp-doc a {

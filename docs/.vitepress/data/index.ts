@@ -1,3 +1,3 @@
-export * from './footerData';
-export * from './metaData';
-export * from './nav';
+export * from "./footerData";
+export * from "./metaData";
+export * from "./nav";

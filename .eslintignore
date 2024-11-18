@@ -1,0 +1,9 @@
+.DS_Store
+node_modules/
+!docs/.vitepress/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/.vitepress/.temp/
+docs/public/
+.idea
+deploy.sh

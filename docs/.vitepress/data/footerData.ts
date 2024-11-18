@@ -1,16 +1,16 @@
 // .vitepress/data/footerData.ts
 
-import type { FooterData } from '@theojs/lumen';
-import { metaData } from './metaData';
+import type { FooterData } from "@theojs/lumen";
+import { metaData } from "./metaData";
 
 export const Footer_Data: FooterData = {
-	beian: {
-		icp: '陇ICP备2021001255号-1',
-		police: '京公网安备11010802044795',
-		showIcon: true,
-	},
-	author: { name: metaData.author, link: metaData.site },
-	/*group: [
+  beian: {
+    icp: "陇ICP备2021001255号-1",
+    police: "京公网安备11010802044795",
+    showIcon: true,
+  },
+  author: { name: metaData.author, link: metaData.site },
+  /*group: [
 		{
 			title: '外部链接',
 			icon: 'fas fa-link', // `iconify`或者 `fortawesome` 图标

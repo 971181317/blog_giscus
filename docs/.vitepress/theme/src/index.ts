@@ -1,2 +1,2 @@
-export * from './fairyDustCursor';
-export * from './title';
+export * from "./fairyDustCursor";
+export * from "./title";

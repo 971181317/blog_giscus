@@ -1,21 +1,21 @@
-import * as fs from 'node:fs';
-import type { DefaultTheme } from 'vitepress';
-import { generateSidebar } from 'vitepress-sidebar';
-import type { VitePressSidebarOptions } from 'vitepress-sidebar';
+import * as fs from "node:fs";
+import type { DefaultTheme } from "vitepress";
+import { generateSidebar } from "vitepress-sidebar";
+import type { VitePressSidebarOptions } from "vitepress-sidebar";
 
 export const sidebar: DefaultTheme.Sidebar = generateSidebar([
-	...curDirSidebar('build'),
-	...curDirSidebar('study-notes'),
-	{
-		documentRootPath: 'docs',
-		scanStartPath: 'technology',
-		resolvePath: '/technology',
-		collapsed: false,
-		// useTitleFromFileHeading: true,
-		removePrefixAfterOrdering: true,
-		prefixSeparator: '.', // 去除数组前缀
-		sortMenusOrderNumericallyFromTitle: true,
-	},
+  ...curDirSidebar("build"),
+  ...curDirSidebar("study-notes"),
+  {
+    documentRootPath: "docs",
+    scanStartPath: "technology",
+    resolvePath: "/technology",
+    collapsed: false,
+    // useTitleFromFileHeading: true,
+    removePrefixAfterOrdering: true,
+    prefixSeparator: ".", // 去除数组前缀
+    sortMenusOrderNumericallyFromTitle: true,
+  },
 ]);
 
 /**
@@ -24,16 +24,16 @@ export const sidebar: DefaultTheme.Sidebar = generateSidebar([
  * @param path
  */
 function curDirSidebar(path: string): VitePressSidebarOptions[] {
-	return fs.readdirSync(`docs/${path}`).map(pkg => {
-		return {
-			documentRootPath: 'docs',
-			scanStartPath: `${path}/${pkg}`,
-			resolvePath: `/${path}/${pkg}/`,
-			collapsed: false,
-			// useTitleFromFileHeading: true,
-			removePrefixAfterOrdering: true,
-			prefixSeparator: '.', // 去除数组前缀
-			sortMenusOrderNumericallyFromTitle: true,
-		};
-	});
+  return fs.readdirSync(`docs/${path}`).map((pkg) => {
+    return {
+      documentRootPath: "docs",
+      scanStartPath: `${path}/${pkg}`,
+      resolvePath: `/${path}/${pkg}/`,
+      collapsed: false,
+      // useTitleFromFileHeading: true,
+      removePrefixAfterOrdering: true,
+      prefixSeparator: ".", // 去除数组前缀
+      sortMenusOrderNumericallyFromTitle: true,
+    };
+  });
 }
