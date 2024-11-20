@@ -18,7 +18,7 @@ hero:
       link: /dev/bilibiliToolChrome/
     - theme: alt
       text: Vitepress搭建指南
-      link: /build/vitepress/
+      link: /build/vitepress/1.介绍
 
 #features:
 #  - title: Feature A

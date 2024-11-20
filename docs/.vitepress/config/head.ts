@@ -29,4 +29,12 @@ export const head: HeadConfig[] = [
       crossorigin: "anonymous",
     },
   ],
+  [
+    "script",
+    {
+      defer: "",
+      src: "http://umami.dxytoll.top/script.js",
+      "data-website-id": "594ac936-5903-43d0-969c-619ccdf943dd",
+    },
+  ],
 ];
