@@ -1,6 +1,6 @@
-import checker from "vite-plugin-checker";
 import type { UserConfig } from "vitepress";
 import { groupIconVitePlugin } from "vitepress-plugin-group-icons";
+import eslint from "vite-plugin-eslint2";
 
 export const vite: UserConfig["vite"] = {
   plugins: [
@@ -25,12 +25,11 @@ export const vite: UserConfig["vite"] = {
         ".sql": "vscode-icons:file-type-sql",
       },
     }),
-    checker({
-      eslint: {
-        // for example, lint .ts and .tsx
-        lintCommand:
-          'eslint "docs/**/*.{js,ts,jsx,tsx,cjs,cts,mjs,mts,html,vue}"',
-      },
+    eslint({
+      fix: true,
+      dev: true,
+      build: true,
+      include: "docs/**/*.{js,ts,jsx,tsx,cjs,cts,mjs,mts,html,vue}",
     }),
   ],
   css: {

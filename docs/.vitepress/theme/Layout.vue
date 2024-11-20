@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { HomeFooter, ShareButton } from "@theojs/lumen";
 import DefaultTheme from "vitepress/theme";
+
 const { Layout } = DefaultTheme;
 import mediumZoom from "medium-zoom";
 import { useData, useRouter } from "vitepress";
@@ -9,6 +10,7 @@ import { Footer_Data } from "../data";
 import BodyClick from "./components/BodyClick.vue";
 import FairyDustCursor from "./components/FairyDustCursor.vue";
 import Sakula from "./components/Sakula.vue";
+import { isDesktop } from "./util/ua";
 
 // @vitepress-plugin-lightbox start
 const router = useRouter();
@@ -85,8 +87,10 @@ onMounted(() => {
 <template>
   <!--  性能太差，下掉了-->
   <!--  <CanvasNest/>-->
-  <Sakula />
-  <BodyClick />
+  <template v-if="isDesktop()">
+    <Sakula />
+    <BodyClick />
+  </template>
   <FairyDustCursor />
   <Layout>
     <template #aside-outline-before>
