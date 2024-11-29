@@ -3,8 +3,7 @@ import * as path from "node:path";
 import type { DefaultTheme } from "vitepress";
 
 export const nav: DefaultTheme.Config["nav"] = [
-  { text: "首页", link: "/" },
-  { text: "导航", link: "/nav", activeMatch: "/nav/" },
+  // { text: "导航", link: "/nav", activeMatch: "/nav/" },
   {
     text: "学习笔记",
     activeMatch: "/study-notes/",
@@ -35,6 +34,27 @@ export const nav: DefaultTheme.Config["nav"] = [
     text: "技术分享",
     link: findFirstMdFile("docs/technology/").replace("docs/", ""),
     activeMatch: "/technology/",
+  },
+  {
+    text: "自建",
+    items: [
+      {
+        text: "Umami",
+        link: "http://umami.dxytoll.top",
+      },
+      {
+        text: "Portainer",
+        link: "http://portainer.dxytoll.top",
+      },
+      {
+        text: "Uptime Kuma",
+        link: "http://uptime-kuma.dxytoll.top/status/dxytoll",
+      },
+      {
+        text: "it tools",
+        link: "http://it-tools.dxytoll.top",
+      },
+    ],
   },
 ];
 
