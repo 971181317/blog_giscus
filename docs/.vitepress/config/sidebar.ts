@@ -9,7 +9,7 @@ export const sidebar: DefaultTheme.Sidebar = generateSidebar([
   {
     documentRootPath: "docs",
     scanStartPath: "technology",
-    resolvePath: "/technology",
+    resolvePath: "/technology/",
     collapsed: false,
     // useTitleFromFileHeading: true,
     removePrefixAfterOrdering: true,

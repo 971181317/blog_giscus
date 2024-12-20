@@ -54,14 +54,6 @@ export const nav: DefaultTheme.Config["nav"] = [
         text: "it tools",
         link: "http://it-tools.dxytoll.top",
       },
-      {
-        text: "drawio",
-        link: "http://drawio.dxytoll.top/",
-      },
-      {
-        text: "excalidraw",
-        link: "http://excalidraw.dxytoll.top/",
-      },
     ],
   },
 ];
